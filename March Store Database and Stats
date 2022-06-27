@@ -1,0 +1,32 @@
+/create a database for types of sweatshirts offered in a store/
+
+CREATE TABLE sweatshirts (id INTEGER PRIMARY KEY, item TEXT, color TEXT, size TEXT, price INTEGER); 
+
+INSERT INTO sweatshirts VALUES (1, "sweatshirt", "green", "M", 80); 
+INSERT INTO sweatshirts VALUES (2, "hoodie", "brown", "S", 60);
+INSERT INTO sweatshirts VALUES (3, "sweatshirt", "blue", "L", 70);
+INSERT INTO sweatshirts VALUES (4, "hoodie", "black", "M", 90); 
+INSERT INTO sweatshirts VALUES (5, "hoodie", "black", "XS", 90);
+INSERT INTO sweatshirts VALUES (6, "hoodie", "white", "L", 60);
+INSERT INTO sweatshirts VALUES (7, "sweatshirt", "multi", "XL", 100); 
+INSERT INTO sweatshirts VALUES (8, "sweatshirt", "grey", "M", 80);
+INSERT INTO sweatshirts VALUES (9, "hoodie", "pink", "XL", 70);
+INSERT INTO sweatshirts VALUES (10, "sweatshirt", "brown", "M", 60);
+INSERT INTO sweatshirts VALUES (11, "hoodie", "multi", "S", 100);
+INSERT INTO sweatshirts VALUES (12, "sweatshirt", "white", "S", 60);
+INSERT INTO sweatshirts VALUES (13, "hoodie", "purple", "M", 70);
+INSERT INTO sweatshirts VALUES (14, "sweatshirt", "black", "XS", 80);
+INSERT INTO sweatshirts VALUES (15, "hoodie", "multi", "L", 100);
+
+/display the database ordered by price/
+SELECT * FROM sweatshirts WHERE price ORDER BY price desc; 
+
+/what is the average price of sweatshirts?/
+SELECT AVG(price) "avg sweatshirt price"
+FROM sweatshirts
+where item='sweatshirt'; 
+
+/what is the average price of hoodies?/
+SELECT AVG(price) "avg hoodie price"
+FROM sweatshirts
+where item='hoodie'; 
