@@ -30,3 +30,4 @@ where item='sweatshirt';
 SELECT AVG(price) "avg hoodie price"
 FROM sweatshirts
 where item='hoodie'; 
+
