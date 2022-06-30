@@ -1,0 +1,41 @@
+/* Create table with Gilmore Girls characters and their data, including name, job, sex, residency, and age */
+CREATE TABLE characters (id INTEGER PRIMARY KEY, name TEXT, job TEXT, sex TEXT, resident TEXT, age INTEGER);
+INSERT INTO characters VALUES (1, "Lorelai", "inn keeper", "F", "YES", 32);
+INSERT INTO characters VALUES (2, "Rory", "student", "F", "YES", 16);
+INSERT INTO characters VALUES (3, "Emily", "philanthropy", "F", "NO", 58);
+INSERT INTO characters VALUES (4, "Richard", "insurance", "M", "NO", 59);
+INSERT INTO characters VALUES (5, "Christopher", "grifter", "M", "NO", 32);
+INSERT INTO characters VALUES (6, "Luke", "diner owner", "M", "YES", 36);
+INSERT INTO characters VALUES (7, "Lane", "student", "F", "YES", 16);
+INSERT INTO characters VALUES (8, "Sooki", "chef", "F", "YES", 30); 
+INSERT INTO characters VALUES (9, "Kirk", "jack of all trades", "M", "YES", 30);
+INSERT INTO characters VALUES (10, "Jess", "student", "M", "YES", 17); 
+/*Create table with Gilmore Girls characters and their relationship data, including romantic relationships and generational relationships*/
+CREATE TABLE relationships (id INTEGER PRIMARY KEY, name TEXT, partner TEXT, marital_status TEXT, partner_id INTEGER);
+INSERT INTO relationships VALUES (1, "Lorelai", "Luke", "married", 6);
+INSERT INTO relationships VALUES (2, "Rory", "Jess", "single", 10);
+INSERT INTO relationships VALUES (3, "Emily", "Richard", "married", 4);
+INSERT INTO relationships VALUES (4, "Richard", "Emily", "married", 3);
+INSERT INTO relationships VALUES (5, "Christopher", "none", "divorced", 0); 
+INSERT INTO relationships VALUES (6, "Luke", "Lorelai", "married", 1);
+INSERT INTO relationships VALUES (7, "Lane", "Zack", "married", 0); 
+INSERT INTO relationships VALUES (8, "Sooki", "Jackson", "married", 0);
+INSERT INTO relationships VALUES (9, "Kirk", "Lulu", "married", 0);
+INSERT INTO relationships VALUES (10, "Jess", "Rory", "single", 2);
+CREATE TABLE children (id INTEGER PRIMARY KEY, name TEXT, child_id INTEGER);
+INSERT INTO children VALUES (1, "Lorelai", 2);
+INSERT INTO children VALUES (3, "Emily", 1);
+INSERT INTO children VALUES (4, "Richard", 1);
+INSERT INTO children VALUES (5, "Christopher", 2); 
+
+
+/*Using an explicit inner join, display character names, jobs, residency status in Stars Hollow, and marital status by series finale, and whom they are in a relationship with using the relationship.id*/ 
+SELECT characters.name, characters.job, characters.resident, relationships.marital_status FROM characters
+    JOIN relationships
+    ON characters.id = relationships.id;
+    
+/*Using a left outer join, display character names, jobs, residency status in Stars Hollow, and children using the children.id*/
+SELECT characters.name, characters.job, characters.resident, children.child_id
+    FROM characters
+    LEFT OUTER JOIN children
+    ON characters.id = children.id;
